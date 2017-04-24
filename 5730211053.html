@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+              <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <!--Import jQuery before materialize.js-->
+                    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+                    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <!-- Navbar goes here -->
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo center"><i class="large material-icons">description </i>Narapat pichairat</a>
+
+        </div>
+      </nav>
+     <!-- Page Layout here -->
+     <div class="row">
+
+
+
+       <div class="col m12">
+         <!-- Teal page content  -->
+         <div class="container">
+     <div class="panel panel-default">
+       <div class="panel-body">
+         <form class="" action="#" method="post">
+           <h3>Login here!!</h3>
+           <div class="form-group">
+              <i class="material-icons">account_circle</i>
+             <label for="username">Username</label>
+             <input type="text" class="form-control" id="username" placeholder="">
+           </div>
+           <div class="form-group">
+         <i class="material-icons">lock_open</i>
+           <label for="passoword">Passowrd</label>
+             <input type="password" class="form-control" id="password" placeholder="">
+           </div>
+
+           <div class="form-group">
+              <button type="button" id="signin" class="btn btn-primary" name="button"><i class="material-icons right">label</i>Sign In</button>
+
+            </div>
+         </form>
+       </div>
+       <div class="panel-footer"></div>
+     </div>
+     <div id="err" style="display:none" class="alert alert-danger alert-dismissable fade in">
+       <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+       <strong>Incorrect username or password</strong>
+       Please check your password.
+     </div>
+     </div>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+     <script type="text/javascript"> //sidebar menu for min-desktop
+
+
+      $("#signin").click(function() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        // console.log(username);
+        // console.log(password);
+        var url = "http://membershipwebapi977290.azurewebsites.net/api/members/signin?username=" + username + "&password=" + password;
+        $.get(url, function(data, status){
+          // console.log("URL : " + data);
+            console.log("Sign in :  " + data.Status);
+        });
+      });
+    </script>
+
+
+
+
+
+
+
+  </body>
+</html>
